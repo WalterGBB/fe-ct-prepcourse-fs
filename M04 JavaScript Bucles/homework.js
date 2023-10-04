@@ -176,7 +176,10 @@ function tieneTresDigitos(num) {
    // Caso contrario, retornar false.
    // Tu código:
       
-      // Convertir el número a cadena y eliminar comas y puntos.
+      /* Convertir el número a cadena y eliminar comas y puntos.
+      La expresión regular [,\.] coincide con cualquier coma o punto en la cadena. 
+      El modificador /g realiza el reemplazo global para eliminar todas las comas y puntos en la
+      cadena antes de contar los dígitos.*/
       const numStr = num.toString().replace(/[,\.]/g, '');
 
       // Contar los dígitos en la cadena (incluyendo dígitos enteros y decimales).
