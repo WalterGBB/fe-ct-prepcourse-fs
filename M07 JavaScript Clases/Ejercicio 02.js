@@ -6,6 +6,25 @@ class Persona {
    // Debe tener las propiedades: "nombre", "apellido", "edad" y "domicilio".
    // Debe tener un método llamado "detalle" que nos devuelva un objeto con las propiedades de la persona y
    // sus valores.
+   constructor(nombre, apellido, edad, domicilio){
+      this.nombre = nombre,
+      this.apellido = apellido,
+      this.edad = edad,
+      this.domicilio = domicilio
+   }
+   detalle() {
+      /*En js, los objetos literales se crean utilizando llaves {} y pueden contener pares de clave-valor. 
+      En este caso, se está creando un objeto literal con cuatro pares clave-valor: */
+      return {
+      nombre: this.nombre,
+      apellido: this.apellido,
+      edad: this.edad,
+      domicilio: this.domicilio
+      }
+      /*Cada clave (nombre, apellido, edad, domicilio) está asociada a una propiedad de la instancia 
+      de la clase Persona. La notación this.nombre, this.apellido, this.edad, y this.domicilio se utiliza 
+      para acceder a los valores de esas propiedades en el contexto de la instancia actual de la clase. */
+   }
 }
 
 function crearInstanciaPersona(nombre, apellido, edad, domicilio) {
@@ -13,6 +32,8 @@ function crearInstanciaPersona(nombre, apellido, edad, domicilio) {
    // Recibirás las propiedades por parámetro.
    // Retornar la instancia creada.
    // Tu código:
+   var persona = new Persona(nombre, apellido, edad, domicilio);
+   return persona;
 }
 
 function agregarMetodo() {
@@ -20,6 +41,12 @@ function agregarMetodo() {
    // Este método toma la propiedad "nombre" y "edad", y devuelve el string:
    // Ejemplo: "Juan, 22 años".
    // Tu código:
+   Persona.prototype.datos = function(){
+      return this.nombre + ", " + this.edad + " años"; 
+   }
+   /*En el contexto de la función agregarMetodo, se usa this.nombre en lugar de Persona.nombre porque this 
+   se refiere a la instancia de la clase Persona en la que se ejecuta el método datos. this hace referencia 
+   al objeto actual, es decir, la instancia de la clase Persona en la que se está llamando al método datos*/
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
